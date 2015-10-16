@@ -1,0 +1,62 @@
+<include file="Common/header" title="document" />
+ 
+    <script>
+        MRDOC.config = {
+            url: {
+                saveUrl: "{:U('saveDoc')}",
+                updateUrl: "{:U('updateDoc')}",
+                destroyUrl: "{:U('destroyDoc')}"
+            }
+        };
+    </script>
+    <div class="doc-container">
+        <div class="doc-toolbar">
+            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="MRDOC.Document.saveDoc()">添加</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="MRDOC.Document.updateDoc()">编辑</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="MRDOC.Document.destroyDoc()">删除</a>
+        </div>
+        <div>
+            <table id="datagrid" class="easyui-datagrid" style="width:100%;height:100px;"
+                method="post"
+                url="{:U('getDocs')}"
+                pagination="true" 
+                loadMsg="数据加载中..."
+                striped="true" 
+                rownumbers="true" 
+                fitColumns="true" 
+                singleSelect="true">
+                <thead>
+                    <tr>
+                        <th width="50" align="center" field="docid"><b>ID</b></th>
+                        <th width="50" align="center" field="title"><b>名称</b></th>
+                        <th width="50" align="center" field="keywords"><b>关键字</b></th>
+                        <th width="50" align="center" field="description"><b>描述</b></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div id="doc_dialog" class="easyui-dialog" closed="true" buttons="#doc_dialog_buttons">
+            <div class="title">文档信息</div>
+            <form method="post">
+                <input type="hidden" name="docid">
+                <div class="item">
+                    <label>名称</label>
+                    <input name="title" class="easyui-textbox">
+                </div>
+                <div class="item">
+                    <label>关键字</label>
+                    <input name="keywords" class="easyui-textbox">
+                </div>
+                <div class="item">
+                    <label>描述</label>
+                    <input name="description" class="easyui-textbox">
+                </div>
+            </form>
+        </div>
+        <div id="doc_dialog_buttons">
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript:MRDOC.Document.saveDoc(true);" id="doc_save_btn">保存</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript:MRDOC.Document.closeDialog();">取消</a>
+        </div>
+    </div>
+
+<include file="Common/footer" />

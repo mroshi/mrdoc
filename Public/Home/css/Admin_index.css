@@ -1,0 +1,13 @@
+.easyui-layout .west{width:280px;}
+.easyui-layout .south{height:66px;}
+#doc_tree{margin:5px;}
+#doc_menu{width:120px;display:none;}
+#doc_tree .tree-title .tree-editor{height:18px!important;}
+.easyui-layout .center .easyui-tabs .tabs-panels .panel{padding-top:5px;}
+.easyui-layout .center .easyui-tabs .tabs-panels .panel .panel-body > div.edui-default,
+.easyui-layout .center .easyui-tabs .tabs-panels .panel .panel-body > div.edui-default > div.edui-editor,
+.easyui-layout .center .easyui-tabs .tabs-panels .panel .panel-body > div.edui-default > div.edui-editor > div.edui-editor-iframeholder{width:100%!important;}
+.edui-default .edui-editor{border:none!important;}
+.doc-icon-save{display:inline-block!important;height:22px!important;width:22px!important;vertical-align:top!important;margin:1px 0 0 2px;}
+.doc-icon-save:hover{background-color:#fff5d4;border:1px solid #dcac6c;}
+.doc-icon-save:active{background-color:#ffffff;border:1px solid gray;}

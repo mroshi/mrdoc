@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        html,body{margin:0;padding:0;}
+        body{padding:10px;}
+    </style>
+    <script src="__PUBLIC__/Common/asset/ueditor1_4_3-utf8-php/ueditor.parse.min.js"></script>
+    <script>
+        setTimeout(function() {
+            uParse('body', {
+                'highlightJsUrl': '__PUBLIC__/Common/asset/ueditor1_4_3-utf8-php/third-party/SyntaxHighlighter/shCore.js',
+                'highlightCssUrl': '__PUBLIC__/Common/asset/ueditor1_4_3-utf8-php/third-party/SyntaxHighlighter/shCoreDefault.css'
+            })
+        }, 300);
+    </script>
+</head>
+<body>{$article['content']}</body>
+</html>

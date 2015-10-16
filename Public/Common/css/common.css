@@ -1,0 +1,19 @@
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+input,
+select,
+button,
+a{font-family:"Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;}
+.clear{clear:both;}
+
+/* icon */
+.doc-icon-save{background:url('../img/icon/save.png') no-repeat center center;}
+.doc-icon-directory{background:url('../img/icon/directory.png') no-repeat center center;}
+.doc-icon-search{background:url('../img/icon/search.png') no-repeat center center;}
+.tree-icon.tree-folder{background:url('../img/icon/folder.png') no-repeat center center;}
+.tree-icon.tree-file{background:url('../img/icon/file.png') no-repeat center center;}

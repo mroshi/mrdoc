@@ -1,0 +1,6 @@
+    <if condition="file_exists(sprintf('%s%s/js/%s_%s.js', PUBLIC_PATH, MODULE_NAME, CONTROLLER_NAME, ACTION_NAME))">
+        <script src="__PUBLIC__/{$Think.MODULE_NAME}/js/{$Think.CONTROLLER_NAME}_{$Think.ACTION_NAME}.js"></script>
+    </if>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+.easyui-layout .west{width:280px;}
+.easyui-layout .south{height:66px;}
+.easyui-layout .layout-panel-west .panel-body .easyui-tabs .tabs-header .tabs li:not(.tabs-selected) .tabs-icon{filter:alpha(opacity=70);-moz-opacity:0.7;-khtml-opacity:0.7;opacity:0.7;}
+#doc_tree_directory{margin:5px;margin-top:8px;}
+#doc_searchbox{margin:0 10px;padding-top:18px;padding-bottom:19px;border-bottom:1px solid #efefef;}
+#doc_searchbox > span{width:100%!important;height:25px!important;padding-left:3px!important;}
+#doc_searchbox > span a{margin-right:3px!important;}
+#doc_tree_search{margin:8px;margin-top:15px;}
+.easyui-layout .center .easyui-tabs .tabs-panels .panel{padding:0;}
+.easyui-layout .center .easyui-tabs .tabs-panels .panel .panel-body{overflow-y:hidden;}

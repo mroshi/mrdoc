@@ -1,0 +1,9 @@
+.doc-container{margin:0 18px 11px 18px;}
+.doc-toolbar{margin:5px 0;}
+#doc_dialog{width:360px;height:200px;padding:10px 20px}
+#doc_dialog form{margin:0;padding:10px 30px;}
+#doc_dialog .title{font-size:14px;font-weight:bold;padding:5px 0;margin-bottom:15px;border-bottom:1px solid #ccc;}
+#doc_dialog .item{margin-bottom:8px;}
+#doc_dialog .item label{display:inline-block;width:50px;}
+#doc_dialog .item input{width:190px;}
+#doc_dialog_buttons a{width:70px;}

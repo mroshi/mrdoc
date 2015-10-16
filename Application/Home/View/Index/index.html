@@ -1,0 +1,36 @@
+<include file="Common/header" title="{$doc['title']}" />
+<include file="Common/navbar" />
+    <script>
+        MRDOC.config = {
+            docid: "{$doc['docid']}",
+            url: {
+                getDir: "{:U('getDir')}",
+                getArticle: "{:U('getArticle')}",
+                showArticle: "{:U('showArticle', array('dirid' => '0'), '')}",
+                search: "{:U('search')}",
+            }
+        };
+    </script>
+    <div class="easyui-layout" data-options="fit:true">
+        <div class="west" data-options="region:'west',title:'{$doc['title']}',split:true">
+            <div class="easyui-tabs" data-options="fit:true,border:false">
+                <div title="&nbsp;目录&nbsp;" data-options="iconCls:'doc-icon-directory'">
+                    <div id="doc_tree_directory">
+                        <ul class="easyui-tree" data-options="url:MRDOC.config.url.getDir,method:'post',queryParams:{docid:'{$doc['docid']}'},"></ul>
+                    </div>
+                </div>
+                <div title="&nbsp;搜索&nbsp;" data-options="iconCls:'doc-icon-search'">
+                    <div id="doc_searchbox"><input class="easyui-searchbox" data-options="prompt:'请输入关键字',searcher:MRDOC.Index.search"></div>
+                    <div id="doc_tree_search">
+                        <ul></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="center" data-options="region:'center'">
+            <div class="easyui-tabs" data-options="fit:true,border:false">
+            </div>
+        </div>
+        <div class="south" data-options="region:'south'"></div>
+    </div>
+<include file="Common/footer" />

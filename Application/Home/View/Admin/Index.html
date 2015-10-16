@@ -1,0 +1,55 @@
+<include file="Common/header" title="{$doc['title']}" />
+<include file="Common/navbar" />
+    <script>
+        MRDOC.config = {
+            url: {
+                addDir: "{:U('addDir')}",
+                removeDir: "{:U('removeDir')}",
+                renameDir: "{:U('renameDir')}",
+                getDir: "{:U('getDir')}",
+                dropDir: "{:U('dropDir')}",
+                getArticle: "{:U('getArticle')}",
+                saveArticle: "{:U('saveArticle')}",
+                baseFrame: "{:U('baseFrame', '', '')}",
+            }
+        };
+    </script>
+    <div class="easyui-layout" data-options="fit:true">
+        <div class="west" data-options="region:'west',title:'{$doc['title']}',split:true">
+            <div id="doc_tree">
+                <ul class="easyui-tree" data-options="
+                    url:MRDOC.config.url.getDir,
+                    method:'post',
+                    queryParams:{docid:'{$doc['docid']}'},
+                    dnd:true,
+                    onContextMenu: function(e,node){
+                        e.preventDefault();
+                        $(this).tree('select',node.target);
+                        $('#doc_menu').menu('show',{
+                            left: e.pageX - 5,
+                            top: e.pageY - 5
+                        });
+                    }
+                "></ul>
+            </div>
+        </div>
+        <div class="center" data-options="region:'center'">
+            <div class="easyui-tabs" data-options="fit:true,border:false">
+            </div>
+        </div>
+        <div class="south" data-options="region:'south'"></div>
+    </div>
+    <div id="doc_menu" class="easyui-menu">
+        <div onclick="MRDOC.Tree.before();">添加到上方</div>
+        <div onclick="MRDOC.Tree.after();">添加到下方</div>
+        <div onclick="MRDOC.Tree.append();">添加子节点</div>
+        <div onclick="MRDOC.Tree.remove();">删除</div>
+        <div onclick="MRDOC.Tree.rename();">重命名</div>
+        <div class="menu-sep"></div>
+        <div onclick="MRDOC.Tree.expandAll();">展开所有节点</div>
+        <div onclick="MRDOC.Tree.collapseAll();">收起所有节点</div>
+    </div>
+<include file="Common/footer_start" />
+    <script src="__PUBLIC__/Common/asset/ueditor1_4_3-utf8-php/ueditor.config.js"></script>
+    <script src="__PUBLIC__/Common/asset/ueditor1_4_3-utf8-php/ueditor.all.min.js"></script>
+<include file="Common/footer_end" />

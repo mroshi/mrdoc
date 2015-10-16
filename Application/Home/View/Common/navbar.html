@@ -1,0 +1,23 @@
+
+    <link rel="stylesheet" href="__PUBLIC__/Common/css/navbar.css">
+    <div id="doc_navbar">
+        <div class="brand"><a href="javascript:;">MRDOC</a></div>
+        <ul class="item left">
+            <?php $navs = M('document')->select(); ?>
+            <foreach name="navs" item="nav" >
+                <li><a href="{:U('index', array('docid' => $nav['docid']))}">{$nav.title}</a></li>
+            </foreach>
+        </ul>
+        <ul class="item right">
+            <if condition="CONTROLLER_NAME == 'Admin'">
+                <li><a href="javascript:MRDOC.Tabs.addFrame('visitor', '访客列表');">访客</a></li>
+                <li><a href="javascript:MRDOC.Tabs.addFrame('document', '文档管理');">文档</a></li>
+                <li><a href="javascript:MRDOC.Tabs.add(-1, '关于');">关于</a></li>
+                <li><a href="{:U('Index/index')}" target="_blank">首页</a></li>
+                <li><a href="{:U('login/logout')}">退出</a></li>
+            <else/>
+                <li><a href="javascript:MRDOC.Index.addTabWithFrame(-1, '关于');">关于</a></li>
+            </if>
+        </ul>
+    </div>
+    <div class="clear"></div>

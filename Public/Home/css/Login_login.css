@@ -1,0 +1,7 @@
+#doc_mask{position:absolute;height:100%;width:100%;top:0;left:0;background:white;z-index:9999999;}
+#doc_window{padding:10px 60px;}
+.doc-row{margin-top:10px;}
+#doc_brand{border-bottom:1px solid #bbb;margin:20px 0;}
+#doc_submit{width:100%;padding:5px 0px;}
+#doc_submit span{font-size:14px;}
+#doc_form > div:nth-child(4) > span > span > a{cursor:pointer;}

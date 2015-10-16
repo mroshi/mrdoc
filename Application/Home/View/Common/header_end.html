@@ -1,0 +1,18 @@
+    <link rel="stylesheet" href="__PUBLIC__/Common/css/common.css">
+    <if condition="file_exists(sprintf('%s%s/css/%s_%s.css', PUBLIC_PATH, MODULE_NAME, CONTROLLER_NAME, ACTION_NAME))">
+        <link rel="stylesheet" href="__PUBLIC__/{$Think.MODULE_NAME}/css/{$Think.CONTROLLER_NAME}_{$Think.ACTION_NAME}.css">
+    </if>
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="__PUBLIC__/Common/js/html5shiv.min.js"></script>
+        <script src="__PUBLIC__/Common/js/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="apple-touch-icon" href="__PUBLIC__/Common/img/apple-touch-icon.png">
+    <link rel="icon" href="__PUBLIC__/Common/img/favicon.ico">
+
+    <script src="__PUBLIC__/Common/js/common.js"></script>
+</head>
+<body>

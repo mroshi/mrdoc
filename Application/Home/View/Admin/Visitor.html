@@ -1,0 +1,32 @@
+<include file="Common/header" title="document" />
+ 
+    <div class="doc-container">
+        <div>
+            <table id="datagrid" class="easyui-datagrid" style="width:100%;height:100px;"
+                method="post"
+                url="{:U('visitor')}"
+                pagination="true" 
+                loadMsg="数据加载中..."
+                striped="true" 
+                rownumbers="true" 
+                fitColumns="true" 
+                singleSelect="true">
+                <thead>
+                    <tr>
+                        <th width="15" align="center" field="vid"><b>ID</b></th>
+                        <th width="40" align="center" field="ipaddress"><b>IP地址</b></th>
+                        <th width="60" align="center" field="timestamp"><b>访问时间</b></th>
+                        <th width="30" align="center" field="device"><b>访问设备</b></th>
+                        <th width="30" align="center" field="deviceName"><b>设备名称</b></th>
+                        <th width="25" align="center" field="is_referral"><b>外链访问</b></th>
+                        <th width="150" align="center" field="referrer"><b>来源页</b></th>
+                        <th width="150" align="center" field="agent_string"><b>UserAgent</b></th>
+                        <th width="30" align="center" field="platform"><b>操作平台</b></th>
+                        <th width="30" align="center" field="version"><b>浏览器版本</b></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+<include file="Common/footer" />
