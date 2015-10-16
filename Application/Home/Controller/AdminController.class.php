@@ -271,8 +271,8 @@ class AdminController extends Controller {
         if (!$dir = M('directory')->where(array('dirid' => $dirid))->find()) {
             $dir['docid'] = 0;
         }
-        $content    = htmlspecialchars_decode($content);
-        $contentTxt = htmlspecialchars_decode($contentTxt);
+        $content    = stripslashes(htmlspecialchars_decode($content));
+        $contentTxt = stripslashes(htmlspecialchars_decode($contentTxt));
         $docid      = $dir['docid'];
 
         if ($article = M('article')->where(array('dirid' => $dirid))->find()) {
