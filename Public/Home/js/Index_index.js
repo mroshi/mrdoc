@@ -106,10 +106,10 @@ MRDOC.Index = function() {
             });
             $(document).ready(function() {
                 var dirid = window.location.hash.substring(1);
-                if (dirid == -1) {
-                    MRDOC.Index.addTabWithFrame(-1, '关于');
-                } else {
+                if (dirid) {
                     MRDOC.Index.openTabByHash(dirid);
+                } else {
+                    MRDOC.Index.addTabWithFrame(-1, '关于');
                 }
             });
             tabs.tabs({
