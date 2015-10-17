@@ -106,7 +106,7 @@ MRDOC.Index = function() {
             });
             $(document).ready(function() {
                 var dirid = window.location.hash.substring(1);
-                if (dirid) {
+                if (dirid && dirid != -1) {
                     MRDOC.Index.openTabByHash(dirid);
                 } else {
                     MRDOC.Index.addTabWithFrame(-1, '关于');

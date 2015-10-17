@@ -49,12 +49,14 @@ MRDOC.Login = function() {
                         MRDOC.function.error(data.error);
                         submit.linkbutton('enable');
                         $(submit).find('span span span').html('登录');
+                        MRDOC.Login.setVerifyIcon();
                     };
                 },
                 error: function(a, b, c) {
                     MRDOC.function.error('请求失败！');
                     submit.linkbutton('enable');
                     $(submit).find('span span span').html('登录');
+                    MRDOC.Login.setVerifyIcon();
                 }
             });
         },
