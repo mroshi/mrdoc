@@ -31,7 +31,7 @@ MRDOC.Document = function() {
         saveDoc: function(isSubmit) {
             if (isSubmit && isSubmit == true) {
                 if (!title.textbox('getValue')) {
-                    MRDOC.function.error('名称不能为空！');
+                    MRDOC._function.error('名称不能为空！');
                     return;
                 };
                 $.ajax({
@@ -45,15 +45,15 @@ MRDOC.Document = function() {
                     },
                     success: function(data) {
                         if (data.success) {
-                            MRDOC.function.success(data.success)
+                            MRDOC._function.success(data.success)
                             MRDOC.Document.closeDialog();
                             form.form('clear');
                             datagrid.datagrid('reload');
                         };
-                        if (data.error) MRDOC.function.error(data.error);
+                        if (data.error) MRDOC._function.error(data.error);
                     },
                     error: function(a, b, c) {
-                        MRDOC.function.error('添加文档失败！');
+                        MRDOC._function.error('添加文档失败！');
                     }
                 });
             } else {
@@ -65,11 +65,11 @@ MRDOC.Document = function() {
         updateDoc: function(isSubmit) {
             if (isSubmit && isSubmit == true) {
                 if (!docid.val()) {
-                    MRDOC.function.error('未知ID！');
+                    MRDOC._function.error('未知ID！');
                     return;
                 };
                 if (!title.textbox('getValue')) {
-                    MRDOC.function.warning('名称不能为空！');
+                    MRDOC._function.warning('名称不能为空！');
                     return;
                 };
                 $.ajax({
@@ -84,21 +84,21 @@ MRDOC.Document = function() {
                     },
                     success: function(data) {
                         if (data.success) {
-                            MRDOC.function.success(data.success)
+                            MRDOC._function.success(data.success)
                             MRDOC.Document.closeDialog();
                             form.form('clear');
                             datagrid.datagrid('reload');
                         };
-                        if (data.error) MRDOC.function.error(data.error);
+                        if (data.error) MRDOC._function.error(data.error);
                     },
                     error: function(a, b, c) {
-                        MRDOC.function.error('编辑文档失败！');
+                        MRDOC._function.error('编辑文档失败！');
                     }
                 });
             } else {
                 var row = datagrid.datagrid('getSelected');
                 if (!row) {
-                    MRDOC.function.warning('未选中任何数据！');
+                    MRDOC._function.warning('未选中任何数据！');
                     return ;
                 };
                 dialog.dialog('open').dialog('center').dialog('setTitle', '编辑文档（ID:' + row.docid + '）');
@@ -112,7 +112,7 @@ MRDOC.Document = function() {
         destroyDoc: function() {
             var row = datagrid.datagrid('getSelected');
             if (!row) {
-                MRDOC.function.warning('未选中任何数据！');
+                MRDOC._function.warning('未选中任何数据！');
                 return;
             };
             $.messager.confirm('ID:' + row.docid, '确定删除吗?', function(r) {
@@ -126,13 +126,13 @@ MRDOC.Document = function() {
                         },
                         success: function(data) {
                             if (data.success) {
-                                MRDOC.function.success(data.success);
+                                MRDOC._function.success(data.success);
                                 datagrid.datagrid('reload');
                             };
-                            if (data.error) MRDOC.function.error(data.error);
+                            if (data.error) MRDOC._function.error(data.error);
                         },
                         error: function(a, b, c) {
-                            MRDOC.function.error('删除文档失败！');
+                            MRDOC._function.error('删除文档失败！');
                         }
                     });
                 }

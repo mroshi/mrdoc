@@ -1,6 +1,4 @@
-
-- 后台密码修改功能
-
+﻿
 - /Application/Home/View/Admin/ 
   该目录下的文件名必须都是小写
 

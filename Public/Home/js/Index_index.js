@@ -31,10 +31,10 @@ MRDOC.Index = function() {
                                 content: data.success.content,
                             });
                         }
-                        if (data.error) MRDOC.function.error(data.error);
+                        if (data.error) MRDOC._function.error(data.error);
                     },
                     error: function(a, b, c) {
-                        MRDOC.function.error('获取文章失败！');
+                        MRDOC._function.error('获取文章失败！');
                     }
                 });
             };
@@ -60,7 +60,7 @@ MRDOC.Index = function() {
         },
         search: function(keyword) {
             if (!keyword) {
-                MRDOC.function.warning('请输入关键字！');
+                MRDOC._function.warning('请输入关键字！');
                 return;
             };
             search.tree({
@@ -73,12 +73,23 @@ MRDOC.Index = function() {
             });
         },
         addHash: function(dirid) {
-            var url = window.location.origin + (window.location.port ? ':' + window.location.port : '') + window.location.pathname;
-            window.location.href = url + '#' + dirid;
+            var href = window.location.href;
+            if (!href) return;
+            var index = href.indexOf('#');
+            if (!index) return;
+            if (index != -1) {
+                href = href.substring(0, index)
+                if (!href) return;
+            };
+            window.location.href = href + '#' + dirid;
         },
         openTabByHash: function(id) {
             setTimeout(function() {
                 var node = directory.tree('find', id);
+                if (node && node.target && !directory.tree('isLeaf', node.target)) {
+                    MRDOC.Index.addTabWithFrame(-1, '关于');
+                    return;
+                };
                 hashOpenTime++;
                 if (hashOpenTime >= 50) return;
                 if (node && node.dirid && node.text) MRDOC.Index.addTabWithFrame(node.dirid, node.text);
@@ -91,7 +102,7 @@ MRDOC.Index = function() {
                     directory.tree('toggle', node.target);
                 },
                 onClick: function(node) {
-                    MRDOC.Index.addTabWithFrame(node.dirid, node.text);
+                    if (directory.tree('isLeaf', node.target)) MRDOC.Index.addTabWithFrame(node.dirid, node.text);
                 },
             });
             search.tree({
@@ -99,9 +110,9 @@ MRDOC.Index = function() {
                     MRDOC.Index.addTabWithFrame(node.dirid, node.text);
                 },
                 onLoadSuccess: function(node, data) {
-                    if (data.length <= 0) MRDOC.function.message('没搜索到相应数据！');
-                    if (data.error) MRDOC.function.error(data.error);
-                    if (data.warning) MRDOC.function.warning(data.warning);
+                    if (data.length <= 0) MRDOC._function.message('没搜索到相应数据！');
+                    if (data.error) MRDOC._function.error(data.error);
+                    if (data.warning) MRDOC._function.warning(data.warning);
                 }
             });
             $(document).ready(function() {

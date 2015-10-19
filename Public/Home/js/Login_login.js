@@ -17,17 +17,17 @@ MRDOC.Login = function() {
                 verifyVal = verify.textbox('getValue').trim();
             if (!accountVal) {
                 account.textbox('textbox').focus();
-                MRDOC.function.warning('请输入帐号!');
+                MRDOC._function.warning('请输入帐号!');
                 return;
             }
             if (!passwordVal) {
                 password.textbox('textbox').focus();
-                MRDOC.function.warning('请输入密码!');
+                MRDOC._function.warning('请输入密码!');
                 return;
             }
             if (!verifyVal) {
                 verify.textbox('textbox').focus();
-                MRDOC.function.warning('请输入验证码!');
+                MRDOC._function.warning('请输入验证码!');
                 return;
             }
 
@@ -46,14 +46,14 @@ MRDOC.Login = function() {
                 success: function(data) {
                     if (data.success) window.location.href = data.success;
                     if (data.error) {
-                        MRDOC.function.error(data.error);
+                        MRDOC._function.error(data.error);
                         submit.linkbutton('enable');
                         $(submit).find('span span span').html('登录');
                         MRDOC.Login.setVerifyIcon();
                     };
                 },
                 error: function(a, b, c) {
-                    MRDOC.function.error('请求失败！');
+                    MRDOC._function.error('请求失败！');
                     submit.linkbutton('enable');
                     $(submit).find('span span span').html('登录');
                     MRDOC.Login.setVerifyIcon();

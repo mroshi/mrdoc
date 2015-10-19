@@ -1,5 +1,5 @@
 window.MRDOC = window.MRDOC || {};
-MRDOC.function = function() {
+MRDOC._function = function() {
     return {
         error: function(msg) {
             $.messager.show({

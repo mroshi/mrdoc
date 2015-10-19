@@ -7,7 +7,7 @@ MRDOC.Tree = function() {
         before: function() {
             var node = MRDOC.Tree.getSelected();
             if (!node) {
-                MRDOC.function.error('无法获取选中的目录！<br/>Error: MRDOC.Tree.before');
+                MRDOC._function.error('无法获取选中的目录！<br/>Error: MRDOC.Tree.before');
                 return;
             };
             var prev = tree.tree('getNode', $(node.target).parent().prev().find('div.tree-node'));
@@ -28,7 +28,7 @@ MRDOC.Tree = function() {
             var node = MRDOC.Tree.getSelected();
             var id = -(new Date().getTime());
             if (!node) {
-                MRDOC.function.error('无法获取选中的目录！<br/>Error: MRDOC.Tree.after');
+                MRDOC._function.error('无法获取选中的目录！<br/>Error: MRDOC.Tree.after');
                 return;
             };
             tree.tree('insert', {
@@ -46,7 +46,7 @@ MRDOC.Tree = function() {
         append: function() {
             var node = MRDOC.Tree.getSelected();
             if (!node) {
-                MRDOC.function.error('无法获取选中的目录！<br/>Error: MRDOC.Tree.append');
+                MRDOC._function.error('无法获取选中的目录！<br/>Error: MRDOC.Tree.append');
                 return;
             };
             var prev = tree.tree('getNode', $(node.target).next().children().last().find('div.tree-node'));
@@ -89,11 +89,11 @@ MRDOC.Tree = function() {
                         });
                     };
                     if (data.error) {
-                        MRDOC.function.error(data.error + '<br/>Error: MRDOC.Tree.add');
+                        MRDOC._function.error(data.error + '<br/>Error: MRDOC.Tree.add');
                     };
                 },
                 error: function(a, b, c) {
-                    MRDOC.function.error('添加目录失败！<br/>Error: MRDOC.Tree.add');
+                    MRDOC._function.error('添加目录失败！<br/>Error: MRDOC.Tree.add');
                     tree.tree('remove', node.target);
                 }
             });
@@ -101,7 +101,7 @@ MRDOC.Tree = function() {
         remove: function() {
             var node = MRDOC.Tree.getSelected();
             if (!node) {
-                MRDOC.function.error('无法获取选中的目录！<br/>Error: MRDOC.Tree.remove');
+                MRDOC._function.error('无法获取选中的目录！<br/>Error: MRDOC.Tree.remove');
                 return;
             };
             $.messager.confirm(' ', 'Remove "' + node.text + '"?', function(r) {
@@ -118,11 +118,11 @@ MRDOC.Tree = function() {
                                 tree.tree('remove', node.target)
                             };
                             if (data.error) {
-                                MRDOC.function.error(data.error + '<br/>Error: MRDOC.Tree.remove');
+                                MRDOC._function.error(data.error + '<br/>Error: MRDOC.Tree.remove');
                             };
                         },
                         error: function(a, b, c) {
-                            MRDOC.function.error('删除目录失败！<br/>Error: MRDOC.Tree.remove');
+                            MRDOC._function.error('删除目录失败！<br/>Error: MRDOC.Tree.remove');
                         }
                     });
                 }
@@ -131,7 +131,7 @@ MRDOC.Tree = function() {
         rename: function() {
             var node = MRDOC.Tree.getSelected();
             if (!node) {
-                MRDOC.function.error('无法获取选中的目录！<br/>Error: MRDOC.Tree.rename');
+                MRDOC._function.error('无法获取选中的目录！<br/>Error: MRDOC.Tree.rename');
                 return;
             };
             tree.tree('beginEdit', node.target);
@@ -147,11 +147,11 @@ MRDOC.Tree = function() {
                 },
                 success: function(data) {
                     if (data.error) {
-                        MRDOC.function.error(data.error + '<br/>Error: MRDOC.Tree.renameDir');
+                        MRDOC._function.error(data.error + '<br/>Error: MRDOC.Tree.renameDir');
                     };
                 },
                 error: function(a, b, c) {
-                    MRDOC.function.error('重命名失败！<br/>Error: MRDOC.Tree.renameDir');
+                    MRDOC._function.error('重命名失败！<br/>Error: MRDOC.Tree.renameDir');
                 }
             });
         },
@@ -184,12 +184,12 @@ MRDOC.Tree = function() {
                         });
                     };
                     if (data.error) {
-                        MRDOC.function.error(data.error + '<br/>Error: MRDOC.Tree.dropDir');
+                        MRDOC._function.error(data.error + '<br/>Error: MRDOC.Tree.dropDir');
                         deny = false;
                     };
                 },
                 error: function(a, b, c) {
-                    MRDOC.function.error('移动失败！<br/>Error: MRDOC.Tree.dropDir');
+                    MRDOC._function.error('移动失败！<br/>Error: MRDOC.Tree.dropDir');
                     deny = false;
                 }
             });
@@ -310,12 +310,12 @@ MRDOC.Tabs = function() {
                     contentTxt: UE.getEditor(ueid).getContentTxt()
                 },
                 success: function(data) {
-                    if (data.success) MRDOC.function.success(data.success);
-                    if (data.message) MRDOC.function.message(data.message);
-                    if (data.error) MRDOC.function.error(data.error);
+                    if (data.success) MRDOC._function.success(data.success);
+                    if (data.message) MRDOC._function.message(data.message);
+                    if (data.error) MRDOC._function.error(data.error);
                 },
                 error: function(a, b, c) {
-                    MRDOC.function.error('保存失败！');
+                    MRDOC._function.error('保存失败！');
                 }
             });
         },
@@ -344,7 +344,7 @@ MRDOC.Tabs = function() {
                                 if (data.success) ue.setContent(data.success.content);
                             },
                             error: function(a, b, c) {
-                                MRDOC.function.error('获取文章失败！');
+                                MRDOC._function.error('获取文章失败！');
                             }
                         });
                         MRDOC.Tabs.addSaveBtn(tabid);
